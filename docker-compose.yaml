@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  go-service:
+    container_name: go-service
+    image: go:1.18.3
+    depends_on:
+      - pg-db
+    ports:
+      - 3000:5000
+
+  pg-db:
+    container_name: pg-db
+    image: postgres:14.3
+    ports:
+      - 5432:5432
